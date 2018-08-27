@@ -990,9 +990,10 @@ if [ -d $(gettop)/prebuilts/snapdragon-llvm/toolchains ]; then
             # Darwin is not supported yet
             ;;
         *)
-            export SDCLANG=true
-            export SDCLANG_PATH=$(gettop)/prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_4.0/prebuilt/linux-x86_64/bin
-            export SDCLANG_PATH_2=$(gettop)/prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_4.0/prebuilt/linux-x86_64/bin
+            export SDCLANG=false
+            export SDCLANG_PATH=$(gettop)/prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_6.0.9/prebuilt/linux-x86_64/bin
+            export SDCLANG_PATH_2=$(gettop)/prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_6.0.9/prebuilt/linux-x86_64/bin
+            export SDCLANG_COMMON_FLAGS="-O3 -mtune=krait -msoft-float -march=armv7-a -mfloat-abi=softfp -mfpu=neon -mcpu=krait -mfpu=neon-vfpv4 -muse-optlibc -fvectorize -Wno-user-defined-warnings -Wno-vectorizer-no-neon -Wno-unknown-warning-option -Wno-deprecated-register -Wno-tautological-type-limit-compare -Wno-sign-compare -Wno-gnu-folding-constant -mllvm -arm-implicit-it=always -mllvm -polly-placement=early -Wno-inline-asm -Wno-unused-command-line-argument -Wno-unused-variable"
             export SDCLANG_LTO_DEFS=$(gettop)/vendor/lineage/build/core/sdllvm-lto-defs.mk
             ;;
     esac
